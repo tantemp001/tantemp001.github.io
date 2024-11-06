@@ -1,0 +1,93 @@
+{
+  "name": "some-name",
+  "description": "some-description",
+  "scripts": {
+    "start": "run-p start:dev",
+    "start:dev": "webpack serve --config webpack.config.dev.js --port 3000",
+    "build": "webpack --config webpack.config.prod.js"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "css-loader": "^6.7.1",
+    "immer": "^9.0.14",
+    "lodash": "^4.17.21",
+    "primeflex": "^3.3.1",
+    "primeicons": "^7.0.0",
+    "primereact": "^10.8.2",
+    "prop-types": "15.7.2",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-router-dom": "6.3.0",
+    "reselect": "4.1.5",
+    "style-loader": "^3.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/eslint-parser": "^7.18.2",
+    "@babel/preset-react": "7.17.12",
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "babel-loader": "8.2.5",
+    "eslint": "8.17.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-react": "7.30.0",
+    "eslint-webpack-plugin": "3.1.0",
+    "fetch-mock": "9.11.0",
+    "html-webpack-plugin": "5.5.0",
+    "http-server": "0.12.3",
+    "json-server": "0.16.3",
+    "mini-css-extract-plugin": "2.1.0",
+    "node-fetch": "^3.2.0",
+    "npm-run-all": "4.1.5",
+    "redux-immutable-state-invariant": "2.1.0",
+    "redux-mock-store": "1.5.4",
+    "rimraf": "3.0.2",
+    "webpack": "5.73.0",
+    "webpack-bundle-analyzer": "4.5.0",
+    "webpack-cli": "4.10.0",
+    "webpack-dev-server": "4.9.1",
+    "css-minimizer-webpack-plugin": "4.0.0"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "requireConfigFile": false
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    },
+    "rules": {
+      "no-debugger": "off",
+      "no-console": "off",
+      "no-unused-vars": "warn",
+      "react/prop-types": "warn"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "root": true
+  }
+}
