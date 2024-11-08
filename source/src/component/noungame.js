@@ -13,7 +13,7 @@ export const NounGamePage = (props) => {
     const [allNouns, setAllNous] = React.useState([]);
     const [currentWord, setCurrentWord] = React.useState();
     const genderColor = {"neuter" : "yellow", "masculine" : "cyan", "feminine": "pink"}
-    const genderArticle = {"neuter" : "das", "masculine" : "der", "feminine": "die"}
+    const genderArticle = {"neuter" : "das", "masculine" : "der", "feminine": "die", "plural": "plural"}
 
     React.useEffect(() => {
       //console.log("here" + JSON.stringify(allUsers));
@@ -30,6 +30,7 @@ export const NounGamePage = (props) => {
                     if ( t["word_type"] == "noun") {
                         thisNoun = { "word" : w.word, "gender" : t.gender, "meanings" : t.meanings, "sentences": t.sentences };
                         nouns.push(thisNoun);
+                        break;
                     }
                 }
             }
@@ -42,8 +43,9 @@ export const NounGamePage = (props) => {
       }
     }, []);
 
-    console.log("here8:" + JSON.stringify(currentWord));
-
+    const reloadNextNoun = () => {
+      setCurrentWord(allNouns[Math.floor(Math.random() * allNouns.length)]);
+    }
 
     return (
       <div class="flex flex-wrap justify-content-center">
@@ -51,6 +53,14 @@ export const NounGamePage = (props) => {
           header="Noun Practice"
           className="w-8"
         >
+          <div class="flex flex-wrap justify-content-end">
+            <Button
+              label="Next"
+              severity="help" 
+              onClick={reloadNextNoun}
+            ></Button>
+            <Divider></Divider>
+          </div>
           <div>
       {currentWord && (
         <>

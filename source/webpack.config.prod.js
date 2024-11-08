@@ -8,15 +8,14 @@ process.env.NODE_ENV = "production";
 module.exports = {
   mode: "production",
   target: "web",
-  entry: "./src/index",
-  output: {
-    path: path.resolve(__dirname, "build"),
-    publicPath: "/",
-    filename: "bundle.js",
-  },
+  entry: { "index" : "./src/index", "noun" : "./src/noungame" },
   plugins: [
     new HtmlWebpackPlugin({
       template: "src/index.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: "src/noungame.html",
+      filename: "noungame.html"
     }),
     //new BundleAnalyzerPlugin({
     //  generateStatsFile : true
