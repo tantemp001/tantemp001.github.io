@@ -13,7 +13,15 @@ export const SingleWord = (props) => {
   const [showDescription, setShowDescription] = React.useState(false);
 
   const onClickShowDescription = () => {
-    currentWord && setShowDescription(!showDescription);
+    if (!currentWord) {
+      return;
+    }
+    if (showDescription) {
+      setButtonLabel("Show Details");
+    } else {
+      setButtonLabel("Hide Details");
+    }
+    setShowDescription(!showDescription);
   };
 
   React.useEffect(() => {
