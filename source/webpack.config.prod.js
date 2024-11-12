@@ -8,7 +8,7 @@ process.env.NODE_ENV = "production";
 module.exports = {
   mode: "production",
   target: "web",
-  entry: { "index" : "./src/index", "noun" : "./src/noungame" },
+  entry: { "index" : "./src/index", "noun" : "./src/noungame", "verb" : "./src/verbgame" },
   plugins: [
     new HtmlWebpackPlugin({
       template: "src/index.html",
@@ -16,6 +16,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "src/noungame.html",
       filename: "noungame.html"
+    }),
+    new HtmlWebpackPlugin({
+      template: "src/verbgame.html",
+      filename: "verbgame.html"
     }),
     //new BundleAnalyzerPlugin({
     //  generateStatsFile : true

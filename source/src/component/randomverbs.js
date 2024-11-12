@@ -3,11 +3,12 @@ import React from "react";
 import { Button } from "primereact/button";
 import { Divider } from 'primereact/divider';
 import { Panel } from 'primereact/panel';
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
 
-import { SingleWord } from "./singleword";
 import * as apiUtils from "../felogic/apicalls";
 
-export const RandomWordsPage = (props) => {
+export const RandomVerbsPage = (props) => {
     const [allWords, setAllWords] = React.useState([]);
     const [currentBatchWords, setCurrentBatchWords] = React.useState([]);
 
@@ -15,9 +16,12 @@ export const RandomWordsPage = (props) => {
       //console.log("here" + JSON.stringify(allUsers));
       if (allWords.length == 0) {
         //console.log("here2");
-        apiUtils.getAllWords().then((x) => {
-          x=x.allwords
-          console.log("here8:" + x.length);
+        apiUtils.getAllVerbs().then((xx) => {
+          let x=[]
+          for (let w of xx) {
+            x.push({"infinitive": w[0], "meaning": w[1], "present": w[2], "prefect": w[3], "participle": w[4] })
+          }
+          //console.log("here8:" + x.length);
           let selected = []
           for (let i=0; i<10; i++) {
             selected.push(x[Math.floor(Math.random() * x.length)])
@@ -41,7 +45,7 @@ export const RandomWordsPage = (props) => {
     return (
       <div className="flex flex-wrap justify-content-center">
         <Panel
-          header="All Random Words"
+          header="All Random Verbs"
           className="w-8"
         >
           <div className="flex flex-wrap justify-content-end">
@@ -52,9 +56,13 @@ export const RandomWordsPage = (props) => {
             ></Button>
             <Divider></Divider>
           </div>
-          {currentBatchWords.map((word, i) => (
-            <SingleWord key={word.word} thisWord={word}></SingleWord>
-          ))}
+          <DataTable value={currentBatchWords} showGridlines stripedRows tableStyle={{ minWidth: '50rem' }}>
+            <Column field="infinitive" header="Infinitive"></Column>
+            <Column field="meaning" header="Meaning"></Column>
+            <Column field="present" header="Present Tense"></Column>
+            <Column field="prefect" header="Imperfect Tense"></Column>
+            <Column field="participle" header="Participle"></Column>
+        </DataTable>
         </Panel>
       </div>
     );

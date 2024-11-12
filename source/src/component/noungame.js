@@ -48,12 +48,12 @@ export const NounGamePage = (props) => {
     }
 
     return (
-      <div class="flex flex-wrap justify-content-center">
+      <div className="flex flex-wrap justify-content-center">
         <Panel
           header="Noun Practice"
           className="w-8"
         >
-          <div class="flex flex-wrap justify-content-end">
+          <div className="flex flex-wrap justify-content-end">
             <Button
               label="Next"
               severity="help" 
@@ -64,15 +64,15 @@ export const NounGamePage = (props) => {
           <div>
       {currentWord && (
         <>
-          <div class="flex flex-wrap">
+          <div className="flex flex-wrap">
             <h1 style={{color: genderColor[currentWord.gender]}}>{currentWord["word"]}</h1>
             <p>{genderArticle[currentWord.gender]}</p>
           </div>
 
           <Divider type="dashed"></Divider>
-          <div class="flex flex-row flex-wrap justify-content-start">
-              <div class="w-2"><strong>Meaning: </strong></div>
-              <div class="flex flex-wrap justify-content-evenly">
+          <div className="flex flex-row flex-wrap justify-content-start">
+              <div className="w-2"><strong>Meaning: </strong></div>
+              <div className="flex flex-wrap justify-content-evenly">
               {
                 currentWord['meanings'] && currentWord['meanings'].map((m) => (<p class="p-2 m-2">{m}</p>))
               }
@@ -80,12 +80,12 @@ export const NounGamePage = (props) => {
           </div>
 
           <Divider type="dashed"></Divider>
-          <div class="flex flex-wrap justify-content-start">
+          <div className="flex flex-wrap justify-content-start">
             <div className="w-2"><strong>Translations: </strong></div>
             <div>
               {
                 currentWord['sentences'].map((sentence) => (
-                <div class="flex flex-wrap flex-column p-1">
+                <div className="flex flex-wrap flex-column p-1">
                   <p>{sentence[0]}</p>
                   <br/>
                   <p class="text-primary">{sentence[1]}</p>

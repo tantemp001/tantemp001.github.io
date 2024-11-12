@@ -28,12 +28,12 @@ export const SingleWord = (props) => {
     setCurrentWord(thisWord);
   });
 
-  console.log(currentWord.translations);
+  //console.log(currentWord.translations);
   return (
     <div>
       {currentWord && (
         <>
-          <div class="flex flex-wrap justify-content-between">
+          <div className="flex flex-wrap justify-content-between">
             <h3>{currentWord["word"]}</h3>
             <Button
               label={buttonLabel}
@@ -45,9 +45,9 @@ export const SingleWord = (props) => {
             currentWord.translations.map((translation) => (
               <>
                 <Divider type="dashed"></Divider>
-                <div class="flex flex-row flex-wrap justify-content-start">
+                <div className="flex flex-row flex-wrap justify-content-start">
                   <div className="w-2"><strong>Meaning: </strong></div>
-                  <div class="flex flex-wrap justify-content-evenly">
+                  <div className="flex flex-wrap justify-content-evenly">
                   {
                     translation['meanings'] && translation['meanings'].map((m) => (<p class="p-2 m-2">{m}</p>))
                   }
@@ -55,12 +55,12 @@ export const SingleWord = (props) => {
                 </div>
 
                 <Divider type="dashed"></Divider>
-                <div class="flex flex-wrap justify-content-start">
+                <div className="flex flex-wrap justify-content-start">
                   <div className="w-2"><strong>Translations: </strong></div>
                   <div>
                     {
                       translation['sentences'].map((sentence) => (
-                      <div class="flex flex-wrap flex-column p-1">
+                      <div className="flex flex-wrap flex-column p-1">
                         <p>{sentence[0]}</p>
                         <br/>
                         <p class="text-primary">{sentence[1]}</p>

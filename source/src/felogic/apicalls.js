@@ -7,3 +7,9 @@ export async function getAllWords() {
   let x = await axios.get(url);
   return x.data;
 }
+
+export async function getAllVerbs() {
+  const url =  "https://raw.githubusercontent.com/tantemp001/dvc-dump001/refs/heads/main/asdqweqwkjhhcqwhajksdjka.json";
+  let x = await axios.get(url);
+  return x.data;
+}
