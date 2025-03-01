@@ -2,7 +2,6 @@ import React from "react";
 
 import { getAllWords } from "@/lib/fetchDataHooks";
 import { Word } from "@/lib/schema";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -22,7 +21,7 @@ export const RandomWordsPage = () => {
       getAllWords().then((x) => {
         x = x.allwords;
         //console.log("here8:" + x.length);
-        let selected: Word[] = [];
+        const selected: Word[] = [];
         for (let i = 0; i < 10; i++) {
           selected.push(x[Math.floor(Math.random() * x.length)]);
         }
@@ -34,7 +33,7 @@ export const RandomWordsPage = () => {
   }, []);
 
   const reloadBatchWords = () => {
-    let selected = [];
+    const selected = [];
     for (let i = 0; i < 10; i++) {
       selected.push(allWords[Math.floor(Math.random() * allWords.length)]);
     }
@@ -61,7 +60,7 @@ export const RandomWordsPage = () => {
                 sx={{ color: "text.secondary", border: 1, paddingBottom: 5 }}
               />
             </Grid>
-            {currentBatchWords.map((word, i) => (
+            {currentBatchWords.map((word) => (
               <SingleWord key={word.word} {...word}></SingleWord>
             ))}
           </Grid>

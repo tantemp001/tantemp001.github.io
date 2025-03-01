@@ -1,30 +1,23 @@
 import React from "react";
 
 import { Word } from "@/lib/schema";
-import Button from "@mui/material/Button";
-import Divider from "@mui/material/Divider";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Grid from "@mui/material/Grid2";
+import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
 import Box from "@mui/material/Box";
 import { blueGrey } from "@mui/material/colors";
+import Divider from "@mui/material/Divider";
+import Grid from "@mui/material/Grid2";
+import Typography from "@mui/material/Typography";
 
 export const SingleWord = (thisWord: Word) => {
   const [currentWord, setCurrentWord] = React.useState<Word>();
-  const [buttonLabel, setButtonLabel] = React.useState("Show Details");
   const [showDescription, setShowDescription] = React.useState(false);
 
   const onClickShowDescription = () => {
     if (!currentWord) {
       return;
-    }
-    if (showDescription) {
-      setButtonLabel("Show Details");
-    } else {
-      setButtonLabel("Hide Details");
     }
     setShowDescription(!showDescription);
   };
@@ -49,8 +42,8 @@ export const SingleWord = (thisWord: Word) => {
             </AccordionSummary>
 
             <AccordionDetails>
-              {currentWord.translations.map((translation) => (
-                <>
+              {currentWord.translations.map((translation,i) => (
+                <Box key={`${currentWord.word}-vocab-${i}`}>
                   <Divider variant="middle"></Divider>
                   <Box
                     sx={{ m: 2, p: 2, bgcolor: blueGrey[500], borderRadius: 2 }}
@@ -64,8 +57,9 @@ export const SingleWord = (thisWord: Word) => {
                     </Typography>
                     <div className="">
                       {translation.meanings &&
-                        translation.meanings.map((m) => (
+                        translation.meanings.map((m, j) => (
                           <Typography
+                            key={`${currentWord.word}-meaning-${i}-${j}`}
                             variant="body1"
                             className="p-2 m-2"
                             display="inline"
@@ -78,6 +72,7 @@ export const SingleWord = (thisWord: Word) => {
 
                   {translation.sentences.length > 0 && (
                     <Box
+                      key={`${currentWord.word}-translation-sentence-${i}`}
                       sx={{
                         m: 2,
                         p: 2,
@@ -93,8 +88,8 @@ export const SingleWord = (thisWord: Word) => {
                         Translations:{" "}
                       </Typography>
                       <div>
-                        {translation.sentences.map((sentence: string[]) => (
-                          <div className=" p-1">
+                        {translation.sentences.map((sentence: string[], k) => (
+                          <div className=" p-1" key={`${currentWord.word}-translation-sentence-${i}-${k}`}>
                             <Typography variant="body1" className="p-2">
                               {sentence[0]}
                             </Typography>
@@ -112,7 +107,7 @@ export const SingleWord = (thisWord: Word) => {
                       </div>
                     </Box>
                   )}
-                </>
+                </Box>
               ))}
             </AccordionDetails>
           </Accordion>

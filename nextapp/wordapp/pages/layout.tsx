@@ -1,7 +1,6 @@
 import CssBaseline from "@mui/material/CssBaseline";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import Box from '@mui/material/Box';
 import Grid from "@mui/material/Grid2";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 const darkTheme = createTheme({
   palette: {
