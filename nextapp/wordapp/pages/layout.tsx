@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Grid container spacing={2} className="justify-center content-center">
+      <Grid container spacing={2} sx={{minHeight: 1}}>
         <main>{children}</main>
       </Grid>
     </ThemeProvider>

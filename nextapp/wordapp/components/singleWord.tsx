@@ -62,7 +62,7 @@ export const SingleWord = (thisWord: Word) => {
                             key={`${currentWord.word}-meaning-${i}-${j}`}
                             variant="body1"
                             className="p-2 m-2"
-                            display="inline"
+                            display={j%7!=0 ? "inline": ""}
                           >
                             {m}
                           </Typography>
