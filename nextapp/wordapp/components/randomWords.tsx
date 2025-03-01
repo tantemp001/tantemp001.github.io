@@ -42,7 +42,7 @@ export const RandomWordsPage = () => {
   };
 
   return (
-    <Grid size={{ md: 8, sm: 12 }} offset={{md: 2}}>
+    <Grid size={{ md: 8, sm: 12 }} offset={{ md: 2 }}>
       <Card>
         <CardContent>
           <Grid container>

@@ -46,7 +46,7 @@ export const SingleWord = (thisWord: Word) => {
                 <Box key={`${currentWord.word}-vocab-${i}`}>
                   <Divider variant="middle"></Divider>
                   <Box
-                    sx={{ m: 2, p: 2, bgcolor: blueGrey[500], borderRadius: 2 }}
+                    sx={{ m: 2, p: 2, bgcolor: blueGrey[700], borderRadius: 2 }}
                   >
                     <Typography
                       variant="h6"
@@ -76,7 +76,7 @@ export const SingleWord = (thisWord: Word) => {
                       sx={{
                         m: 2,
                         p: 2,
-                        bgcolor: blueGrey[500],
+                        bgcolor: blueGrey[700],
                         borderRadius: 2,
                       }}
                     >
