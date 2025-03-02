@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Noun, Translation, Word } from "@/lib/schema";
+import { Noun, Word } from "@/lib/schema";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";

@@ -2,7 +2,7 @@ import React from "react";
 
 import SingleWord from "./singleWord";
 import { getAllWords } from "@/lib/fetchDataHooks";
-import { Noun, Translation, Word } from "@/lib/schema";
+import { Noun, Translation } from "@/lib/schema";
 
 export const NounGamePage = () => {
     const [allNouns, setAllNous] = React.useState<Noun[]>([]);
@@ -15,13 +15,13 @@ export const NounGamePage = () => {
         getAllWords().then((x) => {
           x=x.allwords
           console.log("here8:" + x.length);
-          let nouns: Noun[] = []
-          for (let w of x) {
+          const nouns: Noun[] = []
+          for (const w of x) {
             if ( "translations" in w ){
-                for ( let t of w["translations"]) {
+                for ( const t of w["translations"]) {
                     if ( t["word_type"] == "noun") {
-                        let translation = new Translation("noun", t.gender, t.sentences, t.meanings);
-                        let thisNoun = new Noun(w.word, t.gender, translation);
+                        const translation = new Translation("noun", t.gender, t.sentences, t.meanings);
+                        const thisNoun = new Noun(w.word, t.gender, translation);
                         nouns.push(thisNoun);
                         break;
                     }
@@ -36,9 +36,9 @@ export const NounGamePage = () => {
       }
     }, []);
 
-    const reloadNextNoun = () => {
-      setCurrentWord(allNouns[Math.floor(Math.random() * allNouns.length)]);
-    }
+    // const reloadNextNoun = () => {
+    //   setCurrentWord(allNouns[Math.floor(Math.random() * allNouns.length)]);
+    // }
 
     return (
       <>{currentWord&&<SingleWord thisWord={currentWord!} expanded={true} gender={currentWord!.gender}></SingleWord>}</>);
