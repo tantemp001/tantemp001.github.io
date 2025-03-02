@@ -25,3 +25,13 @@ export class Word{
     }
 
 }
+
+export class Noun extends Word{
+
+    gender: string;
+
+    constructor(word_: string, gender_ : string, translation_: Translation) {
+        super(word_, [translation_]);
+        this.gender = gender_;
+    }
+}

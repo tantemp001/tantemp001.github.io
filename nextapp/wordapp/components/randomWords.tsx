@@ -8,7 +8,7 @@ import CardContent from "@mui/material/CardContent";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
-import { SingleWord } from "./singleWord";
+import SingleWord from "./singleWord";
 
 export const RandomWordsPage = () => {
   const [allWords, setAllWords] = React.useState<Word[]>([]);
@@ -61,7 +61,7 @@ export const RandomWordsPage = () => {
               />
             </Grid>
             {currentBatchWords.map((word) => (
-              <SingleWord key={word.word} {...word}></SingleWord>
+              <SingleWord key={word.word} thisWord={word} expanded={false} gender={""}></SingleWord>
             ))}
           </Grid>
         </CardContent>

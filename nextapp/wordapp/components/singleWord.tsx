@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Word } from "@/lib/schema";
+import { Noun, Translation, Word } from "@/lib/schema";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -11,9 +11,17 @@ import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 
-export const SingleWord = (thisWord: Word) => {
+interface SingleWordProps {
+  thisWord: Word | Noun; expanded: boolean; gender: string
+}
+
+const SingleWord : React.FC<SingleWordProps> = ({thisWord, expanded = false, gender = ""} : SingleWordProps) => {
+  
   const [currentWord, setCurrentWord] = React.useState<Word>();
-  const [showDescription, setShowDescription] = React.useState(false);
+  const [showDescription, setShowDescription] = React.useState(expanded);
+
+  const genderColor : {[key: string]:  string} = {"neuter" : "yellow", "masculine" : "cyan", "feminine": "pink"}
+  const genderArticle : {[key: string]:  string} = {"neuter" : "das", "masculine" : "der", "feminine": "die", "plural": "plural"}
 
   const onClickShowDescription = () => {
     if (!currentWord) {
@@ -36,7 +44,10 @@ export const SingleWord = (thisWord: Word) => {
             onChange={onClickShowDescription}
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography variant="h4" sx={{ color: "rgb(144, 202, 249)" }}>
+              {gender && <Typography variant="h6" sx={{ color: gender ? genderColor[gender] : "rgb(144, 202, 249)" }}>
+                {genderArticle[gender]}
+              </Typography>}
+              <Typography variant="h4" sx={{ color: gender ? genderColor[gender] : "rgb(144, 202, 249)" }}>
                 {currentWord.word}
               </Typography>
             </AccordionSummary>
@@ -119,3 +130,5 @@ export const SingleWord = (thisWord: Word) => {
     </Grid>
   );
 };
+
+export default SingleWord ;
