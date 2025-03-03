@@ -50,7 +50,14 @@ export const RandomWordsPage = () => {
               <Typography variant="h2">All Random Words</Typography>
             </Grid>
             <Grid size={3}>
-              <Button variant="contained" onClick={reloadBatchWords}>
+              <Button variant="contained" href="/nouns" sx={{ m: 2 }}>
+                Noun
+              </Button>
+              <Button
+                variant="contained"
+                onClick={reloadBatchWords}
+                sx={{ m: 2 }}
+              >
                 Next Batch
               </Button>
             </Grid>
@@ -61,7 +68,12 @@ export const RandomWordsPage = () => {
               />
             </Grid>
             {currentBatchWords.map((word) => (
-              <SingleWord key={word.word} thisWord={word} expanded={false} gender={""}></SingleWord>
+              <SingleWord
+                key={word.word}
+                thisWord={word}
+                expanded={false}
+                gender={""}
+              ></SingleWord>
             ))}
           </Grid>
         </CardContent>

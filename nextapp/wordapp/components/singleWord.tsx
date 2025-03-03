@@ -66,19 +66,19 @@ const SingleWord : React.FC<SingleWordProps> = ({thisWord, expanded = false, gen
                     >
                       Meaning:{" "}
                     </Typography>
-                    <div className="">
+                    <Box>
                       {translation.meanings &&
                         translation.meanings.map((m, j) => (
                           <Typography
                             key={`${currentWord.word}-meaning-${i}-${j}`}
                             variant="body1"
                             className="p-2 m-2"
-                            display={j%7!=6 ? "inline": ""}
+                            display={j%4!=3 ? "inline": ""}
                           >
                             {m}
                           </Typography>
                         ))}
-                    </div>
+                    </Box>
                   </Box>
 
                   {translation.sentences.length > 0 && (
