@@ -46,12 +46,15 @@ export const RandomWordsPage = () => {
       <Card>
         <CardContent>
           <Grid container>
-            <Grid size={9}>
+            <Grid size={8}>
               <Typography variant="h2">All Random Words</Typography>
             </Grid>
-            <Grid size={3}>
+            <Grid size={4}>
               <Button variant="contained" href="/nouns" sx={{ m: 2 }}>
                 Noun
+              </Button>
+              <Button variant="contained" href="/quest" sx={{ m: 2 }}>
+                Questions
               </Button>
               <Button
                 variant="contained"

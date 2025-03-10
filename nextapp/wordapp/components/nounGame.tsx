@@ -56,15 +56,13 @@ export const NounGamePage = () => {
           <CardContent>
             <Grid container>
               <Grid size={9}>
-              <Button variant="contained" href="/">Home</Button>
-            </Grid>
+                <Button variant="contained" href="/">Home</Button>
+              </Grid>
               <Grid size={3} sx={{ float: "right" }}>
                 <Button variant="contained" onClick={reloadNextNoun}>
                   Next Noun
                 </Button>
-                
               </Grid>
-              <Grid>
               {currentWord && (
                 <SingleWord
                   thisWord={currentWord!}
@@ -72,7 +70,6 @@ export const NounGamePage = () => {
                   gender={currentWord!.gender}
                 ></SingleWord>
               )}
-              </Grid>
             </Grid>
           </CardContent>
         </Card>

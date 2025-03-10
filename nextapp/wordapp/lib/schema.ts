@@ -35,3 +35,17 @@ export class Noun extends Word{
         this.gender = gender_;
     }
 }
+
+export class Question {
+
+    question: string;
+    options: string[];
+    correct: string;
+
+    constructor(question_: string, options_: string[], correct_: string) {
+        this.question = question_;
+        this.options = options_;
+        this.correct = correct_;
+    }
+
+}
