@@ -1,11 +1,13 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid2";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { deDE } from '@mui/material/locale';
 
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
   },
+  deDE
 });
 
 export default function Layout({ children }: { children: React.ReactNode }) {
